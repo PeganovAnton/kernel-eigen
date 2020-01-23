@@ -178,7 +178,7 @@ def train(model, config, save_path):
 
 def get_mnist(train_bs, valid_bs, test_bs=10000):
     split_percentage = 80
-    data_dir = os.path.join(get_repo_root('nc-ff'), 'datasets')
+    data_dir = os.path.join(get_repo_root('kernel-eigen'), 'datasets')
     train_ds, info = tfds.load(
         name="mnist:3.*.*",
         split="train[:{}%]".format(split_percentage),
@@ -248,7 +248,7 @@ def main():
     # p = mp.Process(target=get_mnist, args=())
     # p.start()
     # p.join()
-    save_path = get_save_path(args.config, 'nc-ff', 'configs', 'results')
+    save_path = get_save_path(args.config, 'kernel-eigen', 'configs', 'results')
     config['save_path'] = save_path
     distribute(config)
 
